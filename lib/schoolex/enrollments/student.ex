@@ -4,6 +4,8 @@ defmodule Schoolex.Enrollments.Student do
   import Brcpfcnpj.Changeset
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+
   schema "students" do
     field :name, :string
     field :cpf, :string
