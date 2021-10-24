@@ -11,6 +11,10 @@ config :schoolex,
   ecto_repos: [Schoolex.Repo],
   generators: [binary_id: true]
 
+config :schoolex, Schoolex.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :schoolex, SchoolexWeb.Endpoint,
   url: [host: "localhost"],
