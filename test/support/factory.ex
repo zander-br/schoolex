@@ -17,4 +17,10 @@ defmodule Schoolex.Factory do
       id: "f62732cd-7b02-4594-8e64-d172299381a1"
     }
   end
+
+  def enrollment_attrs_factory do
+    %{
+      student_id: "f62732cd-7b02-4594-8e64-d172299381a1"
+    }
+  end
 end
