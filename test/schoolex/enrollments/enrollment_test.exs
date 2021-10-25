@@ -17,5 +17,16 @@ defmodule Schoolex.Enrollments.EnrollmentTest do
                valid?: true
              } = valid_enrollment
     end
+
+    test "when invalid student_id, returns an invalid changeset" do
+      invalid_attrs = build(:enrollment_attrs, %{student_id: "invalid_id"})
+
+      invalid_enrollment = Enrollment.changeset(invalid_attrs)
+
+      expected_invalid_response = %{student_id: ["invalid uuid"]}
+
+      assert errors_on(invalid_enrollment) == expected_invalid_response
+      assert %Changeset{valid?: false} = invalid_enrollment
+    end
   end
 end
