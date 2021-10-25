@@ -18,6 +18,7 @@ defmodule Schoolex.Enrollments.Student do
     |> cast(attrs, [:name, :cpf])
     |> validate_name()
     |> validate_cpf()
+    |> unique_constraint([:cpf], message: "enrollment with duplicated student is not allowed")
   end
 
   defp validate_name(changeset) do
