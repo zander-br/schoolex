@@ -29,5 +29,16 @@ defmodule Schoolex.EnrollmentsTest do
 
       assert errors_on(reason) == expected_error_response
     end
+
+    test "when there is enrollment for the student, returns an error" do
+      insert(:student)
+      duplicate_params = build(:enrollment_parms)
+
+      {:error, reason} = Enrollments.create_enrollment(duplicate_params)
+
+      expected_error_response = %{cpf: ["enrollment with duplicated student is not allowed"]}
+
+      assert errors_on(reason) == expected_error_response
+    end
   end
 end
