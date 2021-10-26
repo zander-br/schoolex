@@ -23,4 +23,10 @@ defmodule Schoolex.Factory do
       student_id: "f62732cd-7b02-4594-8e64-d172299381a1"
     }
   end
+
+  def enrollment_parms_factory do
+    %{
+      student: build(:student_attrs)
+    }
+  end
 end
